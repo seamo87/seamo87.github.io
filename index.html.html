@@ -1,0 +1,92 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<strong>TD Conf.Config data </strong><br><br>
+var TDConf = TDConf || {};<br>
+TDConf.Config = { <br>
+  pageType: "Test",<br>
+  pageURL: window.location.href,<br>
+  orderId: "[ORDER_NUMBER]", <br>
+  orderValue: "[ORDER_VALUE]",<br>
+  currency: "[CURRENCY]",<br>
+  voucher: "[VOUCHER]"<br>
+  };<br>
+<br>
+<br>
+<strong>URL: </strong>
+<div id="testurl">
+</div>
+<br>
+<br>
+<strong>PageType: </strong>
+<div id="testType">
+</div>
+<br>
+<br>
+<strong>URL Match: </strong>
+<div id="urlmatch">
+</div>
+<br>
+<br>
+<strong>PageType Match: </strong>
+<div id="pagematch">
+</div>
+<br>
+<br>
+<strong>Result: </strong>
+<div id="result"></div> 
+<br>
+<br>
+<button type="button" id="testpage" onClick="">Test Page</button>
+<script type="text/javascript">
+var TDConf = TDConf || {};
+TDConf.Config = { 
+  pageType: "Test",
+  pageURL: window.location.href,
+  orderId: "[ORDER_NUMBER]", 
+  orderValue: "[ORDER_VALUE]",
+  currency: "[CURRENCY]",
+  voucher: "[VOUCHER]"
+  };
+</script>
+
+<script type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
+
+<script>
+$(document).ready(function () {
+		$('#testurl').append('<p>'+window.location.href+'</p>');
+		$('#testType').append('<p>'+TDConf.Config.pageType+'</p>');
+	$(function () {
+//	$("#testpage").click(function(){
+		if (tdm !==null)
+		{
+		$('#urlmatch').append('<p> True </p>');
+		}
+		else{
+		$('#urlmatch').append('<p> False </p>');
+		}
+		if (tdpm !==null)
+		{
+		$('#pagematch').append('<p> True </p>');
+		}
+		else{
+		$('#pagematch').append('<p> False </p>');
+		}
+		if($('body').is(':contains("tradedoubler.com")'))
+			{
+			$('#result').append('<p> Success </p>');
+			const TDpxi = $('iframe').attr('src');
+			$('#result').append(TDpxi);
+			return;;
+			}
+			else{
+			$('#result').append('<p>Failed</p><br><br>');
+			return;
+			}
+});});
+//);
+</script>
+</body>
+</html>

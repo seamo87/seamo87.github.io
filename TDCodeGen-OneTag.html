@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="TDCodeGen-OneTag.js"></script>
+<link rel="stylesheet" href="TDCodeGen-OneTag.css">
+<img src="https://www.tradedoubler.com/wp-content/uploads/2018/12/logo-td-248.png"/ class="center" />
+<br>
+<br>
+</head>
+
+<form class="tagGen" id="tagGen">
+	<label for="org"><strong>Organisation ID: </strong></label><br>
+	<input type="org" id="org" name="org"><br><br>
+	<label for="event"><strong>Event ID: </strong></label><br>
+	<input type="text" id="event" name="event"><br><br>	
+	<label for="cid"><strong>Container ID: </strong></label><br>
+	<input type="text" id="cid" name="cid"><br><br>	
+	<p><strong>Tracking Tag Firing Conditions</strong></p>
+	<input type="checkbox" id="checkeu" name="checkeu" value="Exact URL" checked>
+	<label for="checkeu"> Exact URL   <label>
+	<input type="checkbox" id="checkpu" name="checkpu" value="Partial URL">
+	<label for="checkpu"> URL Contains   <label>
+	<input type="checkbox" id="checkpg" name="checkpg" value="Page Type">
+	<label for="checkpg"> Page Type   <label><br><br>
+	<div id="divc1">
+	<label for="exact"><strong>Exact URL: </strong></label><br>
+	<input type="text" id="exact" name="exact"><br><br>
+	</div>
+	<div id="divc2" style="display:none">
+	<label for="partial"><strong>URL contains: </strong></label><br>
+	<input type="text" id="partial" name="partial"><br><br>
+	</div>
+	<div id="divc3" style="display:none">
+	<label for="page"><strong>Page Type</strong></label><br>
+	<input type="text" id="page" name="page"><br><br>
+	</div>
+	<input type="radio" id="container" name="tagtype" value="container">
+	<label for="container"> Advertiser tags</label> 
+	<input type="radio" id="tracking" name="tagtype" value="tracking">
+	<label for="tracking"> Spaceport tags</label><br><br> 
+	<input type="submit" value="Generate Code">
+</form>
+<br>
+<br>
+<div class="text" id="tags">
+<textarea id="tagCode" name="tagCode" rows="20" cols="150" readonly="readonly"></textarea><br><br>
+<button type="button" id="exporttxt" onClick=""> Export to txt file</button>
+</div>
+</body>
+</body>
+</html>
