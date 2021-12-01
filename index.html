@@ -1,20 +1,49 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+var TDConf = TDConf || {};
+TDConf.Config = { 
+  pageType: "Test",
+  pageURL: window.location.href,
+  orderId: "[ORDER_NUMBER]", 
+  orderValue: "[ORDER_VALUE]",
+  currency: "[CURRENCY]",
+  voucher: "[VOUCHER]"
+  };
+</script>
 </head>
 <body>
+<script id="swrap" type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
+<form id="runTest">
+<label for="newContID">Container ID</label><br><br>
+<input type="text" id="newContID" name="newContID"><br><br>
+<label for="newPageType">PageType</label><br>
+<input type="text" id="newPageType" name="newPageType"><br><br>
+<label for="newOrdID">Order ID</label><br><br>
+<input type="text" id="newOrdID" name="newOrdID" value="[ORDER_NUMBER]"><br><br>
+<label for="newOrdVal">Order Value</label><br><br>
+<input type="text" id="newOrdVal" name="newOrdVal" value="[ORDER_VALUE]"><br><br>
+<label for="newOrdVal">Currency</label><br><br>
+<input type="text" id="newCurrency" name="newCurrency" value="[CURRENCY]"><br><br>
+<label for="newOrdVal">Voucher</label><br><br>
+<input type="text" id="newVoucher" name="newVoucher" value="[VOUCHER]"><br><br>
+<input type="submit" value="Submit">
+</form><br><br>
+<div id="wholeTest">
 <strong>TD Conf.Config data </strong><br><br>
-var TDConf = TDConf || {};<br>
-TDConf.Config = { <br>
-  pageType: "Test",<br>
-  pageURL: window.location.href,<br>
-  orderId: "[ORDER_NUMBER]", <br>
-  orderValue: "[ORDER_VALUE]",<br>
-  currency: "[CURRENCY]",<br>
-  voucher: "[VOUCHER]"<br>
-  };<br>
-<br>
-<br>
+<div id="TDConfPageType">
+</div><br>
+<div id="TDConfPageURL">
+</div><br>
+<div id="TDConfOrderID">
+</div><br>
+<div id="TDConfOrderValue">
+</div><br>
+<div id="TDConfCurrency">
+</div><br>
+<div id="TDConfVoucher">
+</div><br>
 <strong>URL: </strong>
 <div id="testurl">
 </div>
@@ -39,52 +68,69 @@ TDConf.Config = { <br>
 <div id="result"></div> 
 <br>
 <br>
-<button type="button" id="testpage" onClick="">Test Page</button>
-<script type="text/javascript">
-var TDConf = TDConf || {};
-TDConf.Config = { 
-  pageType: "Test",
-  pageURL: window.location.href,
-  orderId: "[ORDER_NUMBER]", 
-  orderValue: "[ORDER_VALUE]",
-  currency: "[CURRENCY]",
-  voucher: "[VOUCHER]"
-  };
-</script>
-
-<script type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
-
+</div>
 <script>
 $(document).ready(function () {
-		$('#testurl').append('<p>'+window.location.href+'</p>');
-		$('#testType').append('<p>'+TDConf.Config.pageType+'</p>');
-	$(function () {
-//	$("#testpage").click(function(){
-		if (tdm !==null)
+	$('#wholeTest').hide();
+	$('#runTest').submit(function (e) {
+		var swrapURL="https://swrap.tradedoubler.com/wrap?id=";
+		swrapURL=swrapURL+$('#newContID').val();
+		console.log(swrapURL);
+		$('#swrap').attr('src',swrapURL);
+		$('#wholeTest').show();
+		TDConf.Config.pageType= $('#newPageType').val();
+		TDConf.Config.orderID= $('#newOrdID').val();
+		TDConf.Config.orderValue= $('#newOrdVal').val();
+		TDConf.Config.currency= $('#newCurrency').val();
+		TDConf.Config.voucher= $('#newVoucher').val();
+//		var TDConfig = TDConf.Config;
+//		var TDConfig2 = [];
+//		$.each(TDConfig, function(idx2,val2) {                    
+//			var str = idx2 + ":" + val2 + "<br>";
+//			TDConfig2.push(str);
+//		});
+//		$('#TDConf').append('<p>'+TDConfig2+'</p>');
+//		var comma = $('#TDConf');
+//		comma.html(comma.html().replace(/\,/g, ''));
+		$('#TDConfPageType').text('PageType='+TDConf.Config.pageType);
+		$('#TDConfPageURL').text('PageURL='+TDConf.Config.pageURL);
+		$('#TDConfOrderID').text('OrderID='+TDConf.Config.orderID);
+		$('#TDConfOrderVal').text('OrderVal='+TDConf.Config.orderVal);
+		$('#TDConfCurrency').text('Currency='+TDConf.Config.currency);
+		$('#TDConfVoucher').text('Voucher='+TDConf.Config.voucher);
+		$('#testurl').text(window.location.href);
+		$('#testType').text(TDConf.Config.pageType);
+//	$(function () {
+		//var iframesrc = $('iframe').attr('src');
+		//console.log(iframesrc);
+
+		if (tdm !==null || tdm =='undefined')
 		{
-		$('#urlmatch').append('<p> True </p>');
+		$('#urlmatch').text('Match value - '+tdu+'   ||   Successful match - True');
+//		$('#urlmatch').append('<p>Match value - '+tdu+'<br><br><p>Successful match - True </p>');
 		}
 		else{
-		$('#urlmatch').append('<p> False </p>');
+		$('#urlmatch').text('Match value - '+tdu+'   ||  Successful match - False');
+//		$('#urlmatch').append('<p>Match value - '+tdu+'<br><br><p>Successful match - False </p>');
 		}
-		if (tdpm !==null)
+		if (tdpm !==null || tdpm =='undefined')
 		{
-		$('#pagematch').append('<p> True </p>');
+		$('#pagematch').text('Match value - '+tdp+'   ||   Successful match - True');
 		}
-		else{
-		$('#pagematch').append('<p> False </p>');
-		}
-		if($('body').is(':contains("tradedoubler.com")'))
+		else
+		{
+		$('#pagematch').text('Match value - '+tdp+'   ||  Successful match - False');
+		};
+		if($('body').is(':contains("tbs.tradedoubler.com")'))
 			{
-			$('#result').append('<p> Success </p>');
+			$('#result').text('Success');
 			const TDpxi = $('iframe').attr('src');
 			$('#result').append(TDpxi);
-			return;;
 			}
 			else{
-			$('#result').append('<p>Failed</p><br><br>');
-			return;
+			$('#result').text('Failed');
 			}
+		e.preventDefault();
 });});
 //);
 </script>
