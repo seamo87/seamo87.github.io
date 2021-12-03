@@ -91,6 +91,7 @@ $(document).ready(function () {
 	$('#loadCont').hide();
 	$('#testResults').hide();
 	$('#runTest').submit(function (e) {
+		html.find('script[src="https://svht.tradedoubler.com/tr_sdk.js"]').remove();
 		$('iframe').remove();
 		var swrapURL="https://swrap.tradedoubler.com/wrap?id=";
 		swrapURL=swrapURL+$('#newContID').val();
@@ -107,7 +108,7 @@ $(document).ready(function () {
 		load_js();
 		$('#loadCont').show();
 		TDConf.Config.pageType= $('#newPageType').val();
-		TDConf.Config.orderID= $('#newOrdID').val();
+		TDConf.Config.orderId= $('#newOrdID').val();
 		TDConf.Config.orderValue= $('#newOrdVal').val();
 		TDConf.Config.currency= $('#newCurrency').val();
 		TDConf.Config.voucher= $('#newVoucher').val();
