@@ -12,25 +12,32 @@ TDConf.Config = {
   voucher: "[VOUCHER]"
   };
 </script>
+<script id="swrap" type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
 </head>
 <body>
-<script id="swrap" type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
+Container list:<br>
+Exact Match + pageType example - 26253 <br>
+URL Contains + pageType example - 26240<br>
+Exact Match example - 26256<br>
+URL contains example - 26255 <br>
+pageType example - 26254 <br>
+<br>
 <form id="runTest">
-<label for="newContID">Container ID</label><br><br>
+<label for="newContID"><strong>Container ID</strong></label><br><br>
 <input type="text" id="newContID" name="newContID"><br><br>
-<label for="newPageType">PageType</label><br>
+<label for="newPageType"><strong>PageType</strong></label><br>
 <input type="text" id="newPageType" name="newPageType"><br><br>
-<label for="newOrdID">Order ID</label><br><br>
+<label for="newOrdID"><strong>Order ID</strong></label><br><br>
 <input type="text" id="newOrdID" name="newOrdID" value="[ORDER_NUMBER]"><br><br>
-<label for="newOrdVal">Order Value</label><br><br>
+<label for="newOrdVal"><strong>Order Value</strong></label><br><br>
 <input type="text" id="newOrdVal" name="newOrdVal" value="[ORDER_VALUE]"><br><br>
-<label for="newOrdVal">Currency</label><br><br>
+<label for="newOrdVal"><strong>Currency</strong></label><br><br>
 <input type="text" id="newCurrency" name="newCurrency" value="[CURRENCY]"><br><br>
-<label for="newOrdVal">Voucher</label><br><br>
+<label for="newOrdVal"><strong>Voucher</strong></label><br><br>
 <input type="text" id="newVoucher" name="newVoucher" value="[VOUCHER]"><br><br>
-<input type="submit" value="Submit">
+<input type="submit" value="Load Container Tag">
 </form><br><br>
-<div id="wholeTest">
+<div id="loadCont">
 <strong>TD Conf.Config data </strong><br><br>
 <div id="TDConfPageType">
 </div><br>
@@ -54,6 +61,11 @@ TDConf.Config = {
 </div>
 <br>
 <br>
+<button type="button" id="testbtn" onClick="" Value="Test">Test Pixel</button>
+<br>
+<br>
+</div>
+<div id="testResults">
 <strong>URL Match: </strong>
 <div id="urlmatch">
 </div>
@@ -64,20 +76,36 @@ TDConf.Config = {
 </div>
 <br>
 <br>
+
 <strong>Result: </strong>
 <div id="result"></div> 
 <br>
 <br>
 </div>
 <script>
+var date='';
+var hour='';
+var min='';
+var sec='';
 $(document).ready(function () {
-	$('#wholeTest').hide();
+	$('#loadCont').hide();
+	$('#testResults').hide();
 	$('#runTest').submit(function (e) {
+		$('iframe').remove();
 		var swrapURL="https://swrap.tradedoubler.com/wrap?id=";
 		swrapURL=swrapURL+$('#newContID').val();
 		console.log(swrapURL);
-		$('#swrap').attr('src',swrapURL);
-		$('#wholeTest').show();
+		function load_js()
+		{
+			$('#swrap').remove();
+			var head= document.getElementsByTagName('head')[0];
+			var script= document.createElement('script');
+			script.src= swrapURL;
+			script.id= 'swrap';
+			head.appendChild(script);
+		};
+		load_js();
+		$('#loadCont').show();
 		TDConf.Config.pageType= $('#newPageType').val();
 		TDConf.Config.orderID= $('#newOrdID').val();
 		TDConf.Config.orderValue= $('#newOrdVal').val();
@@ -100,38 +128,64 @@ $(document).ready(function () {
 		$('#TDConfVoucher').text('Voucher='+TDConf.Config.voucher);
 		$('#testurl').text(window.location.href);
 		$('#testType').text(TDConf.Config.pageType);
+
 //	$(function () {
 		//var iframesrc = $('iframe').attr('src');
 		//console.log(iframesrc);
-
-		if (tdm !==null || tdm =='undefined')
-		{
-		$('#urlmatch').text('Match value - '+tdu+'   ||   Successful match - True');
-//		$('#urlmatch').append('<p>Match value - '+tdu+'<br><br><p>Successful match - True </p>');
-		}
-		else{
-		$('#urlmatch').text('Match value - '+tdu+'   ||  Successful match - False');
-//		$('#urlmatch').append('<p>Match value - '+tdu+'<br><br><p>Successful match - False </p>');
-		}
-		if (tdpm !==null || tdpm =='undefined')
-		{
-		$('#pagematch').text('Match value - '+tdp+'   ||   Successful match - True');
-		}
-		else
-		{
-		$('#pagematch').text('Match value - '+tdp+'   ||  Successful match - False');
-		};
-		if($('body').is(':contains("tbs.tradedoubler.com")'))
+		$('#document').ready(function(){
+		$('#testbtn').click(function(){
+			date=new Date;
+			hour=date.getHours();
+			min=date.getMinutes();
+			sec=date.getSeconds();
+			if (hour   < 10) {hour   = "0"+hour;}
+			if (min < 10) {min = "0"+min;}
+			if (sec < 10) {sec = "0"+sec;}
+			var formattedTime=hour + ':' + min + ':' + sec;
+			console.log(formattedTime);
+			$('#testResults').show();
+			if(swrapURL == "https://swrap.tradedoubler.com/wrap?id=26254" || swrapURL == "https://swrap.tradedoubler.com/wrap?id=")
+				{
+				$('#urlmatch').text('N/A');
+				}
+			else{
+				if (tdm !==null || tdm =='undefined')
+					{
+					$('#urlmatch').text('Match value - '+tdu+'   ||   Successful match - True');
+				}
+				else{
+				$('#urlmatch').text('Match value - '+tdu+'   ||  Successful match - False');
+				}
+				}
+			if(swrapURL == "https://swrap.tradedoubler.com/wrap?id=26255" || swrapURL == "https://swrap.tradedoubler.com/wrap?id=26256" || swrapURL == "https://swrap.tradedoubler.com/wrap?id=")
+				{
+				$('#pagematch').text('N/A');
+				}
+			else{
+				if (tdpm !==null || tdpm =='undefined')
+				{
+				$('#pagematch').text('Match value - '+tdp+'   ||   Successful match - True');
+				}
+				else
+				{
+				$('#pagematch').text('Match value - '+tdp+'   ||  Successful match - False');
+				}
+			}
+			$('iframe').attr('id', 'TDpix');
+			if($('body').is(':contains("tbs.tradedoubler.com")'))
 			{
-			$('#result').text('Success');
-			const TDpxi = $('iframe').attr('src');
-			$('#result').append(TDpxi);
+			var TDpxi = $('iframe').attr('src');
+			$('#result').text(formattedTime + ' || ' + TDpxi);
 			}
 			else{
-			$('#result').text('Failed');
+			$('#result').text(formattedTime + ' || Nothing happened');
 			}
+			});});
 		e.preventDefault();
 });});
+
+
+
 //);
 </script>
 </body>
