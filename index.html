@@ -51,15 +51,6 @@ pageType example - 26254 <br>
 </div><br>
 <div id="TDConfVoucher">
 </div><br>
-<strong>URL: </strong>
-<div id="testurl">
-</div>
-<br>
-<br>
-<strong>PageType: </strong>
-<div id="testType">
-</div>
-<br>
 <br>
 <button type="button" id="testbtn" onClick="" Value="Test">Test Pixel</button>
 <br>
@@ -123,12 +114,10 @@ $(document).ready(function () {
 //		comma.html(comma.html().replace(/\,/g, ''));
 		$('#TDConfPageType').text('PageType='+TDConf.Config.pageType);
 		$('#TDConfPageURL').text('PageURL='+TDConf.Config.pageURL);
-		$('#TDConfOrderID').text('OrderID='+TDConf.Config.orderID);
+		$('#TDConfOrderID').text('OrderID='+TDConf.Config.orderId);
 		$('#TDConfOrderVal').text('OrderVal='+TDConf.Config.orderVal);
 		$('#TDConfCurrency').text('Currency='+TDConf.Config.currency);
 		$('#TDConfVoucher').text('Voucher='+TDConf.Config.voucher);
-		$('#testurl').text(window.location.href);
-		$('#testType').text(TDConf.Config.pageType);
 
 //	$(function () {
 		//var iframesrc = $('iframe').attr('src');
