@@ -67,20 +67,20 @@ $(document).ready(function(){
 	const pageT=$('#page').val();
 	var trackPrefix = '//Tags to be placed into the container tag in Spaceport\r\n\r\n'; 
 	if($('#checkeu').prop('checked') == true && $('#checkpg').prop('checked')==true)
-		{trackPrefix=trackPrefix+'const tdu = \''+exactU+'\';\r\nconst tdp = \''+pageT+'\';\r\nconst tdm = TDConf.Config.pageURL.match(new RegExp(\'^\'+tdu+\'$\', \'g\'));\r\nconst tdpm = TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdm !==null && tdpm !==null) {\r\n\r\n';}
+		{trackPrefix=trackPrefix+'var tdu=\'\';\r\nvar tdp=\'\';\r\nvar tdm=\'\';\r\nvar tdpm=\'\';\r\ntdu=\''+exactU+'\';\r\ntdp=\''+pageT+'\';\r\ntdm=TDConf.Config.pageURL.match(new RegExp(\'^\'+tdu+\'$\', \'g\'));\r\ntdpm=TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdm !==null && tdpm !==null) {\r\n\r\n';}
 	else {
 			if($('#checkpu').prop('checked') == true && $('#checkpg').prop('checked')==true)
-				{trackPrefix=trackPrefix+'const tdu = \''+partialU+'\';\r\nconst tdp = \''+pageT+'\';\r\nconst tdm = TDConf.Config.pageURL.match(new RegExp(tdu, \'g\'));\r\nconst tdpm = TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdm !==null && tdpm !==null) {\r\n\r\n';}
+				{trackPrefix=trackPrefix+'var tdu=\'\';\r\nvar tdp=\'\';\r\nvar tdpm=\'\';\r\nvar tdm=\'\';\r\ntdu=\''+partialU+'\';\r\ntdp=\''+pageT+'\';\r\ntdm=TDConf.Config.pageURL.match(new RegExp(tdu, \'g\'));\r\ntdpm=TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdm !==null && tdpm !==null) {\r\n\r\n';}
 			else{
 					if($('#checkpg').prop('checked')==true)
-					{trackPrefix=trackPrefix+'const tdp = \''+pageT+'\';\r\nconst tdpm = TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdpm !==null) {\r\n\r\n';}
+					{trackPrefix=trackPrefix+'var tdp=\'\';\r\nvar tdpm=\'\';\r\ntdp=\''+pageT+'\';\r\ntdpm=TDConf.Config.pageType.match(new RegExp(tdp,\'g\'));\r\n\r\nif(tdpm !==null) {\r\n\r\n';}
 					else{
 						if($('#checkeu').prop('checked')==true)
-						{trackPrefix=trackPrefix+'const tdu = \''+exactU+'\';\r\nconst tdm = TDConf.Config.pageURL.match(new RegExp(\'^\'+tdu+\'$\', \'g\'));\r\n\r\nif(tdm !==null) {\r\n\r\n';
+						{trackPrefix=trackPrefix+'var tdu=\'\';\r\nvar tdm=\'\';\r\ntdu=\''+exactU+'\';\r\ntdm=TDConf.Config.pageURL.match(new RegExp(\'^\'+tdu+\'$\', \'g\'));\r\n\r\nif(tdm !==null) {\r\n\r\n';
 						}
 						else{
 							if($('#checkpu').prop('checked')==true)
-							{trackPrefix=trackPrefix+'const tdu = \''+partialU+'\';\r\nconst tdm = TDConf.Config.pageURL.match(new RegExp(tdu, \'g\'));\r\n\r\nif(tdm !==null) {\r\n\r\n'
+							{trackPrefix=trackPrefix+'var tdu=\'\';\r\nvar tdm=\'\';\r\ntdu=\''+partialU+'\';\r\ntdm=TDConf.Config.pageURL.match(new RegExp(tdu, \'g\'));\r\n\r\nif(tdm !==null) {\r\n\r\n'
 							}
 							else{
 					};};};};};
