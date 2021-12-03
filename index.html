@@ -4,7 +4,7 @@
 <script type="text/javascript">
 var TDConf = TDConf || {};
 TDConf.Config = { 
-  pageType: "Test",
+  pageType: "",
   pageURL: window.location.href,
   orderId: "[ORDER_NUMBER]", 
   orderValue: "[ORDER_VALUE]",
@@ -12,7 +12,7 @@ TDConf.Config = {
   voucher: "[VOUCHER]"
   };
 </script>
-<script id="swrap" type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id=26240"></script>
+<script id="swrap" type="text/javascript" src="https://swrap.tradedoubler.com/wrap?id="></script>
 </head>
 <body>
 Container list:<br>
@@ -91,7 +91,7 @@ $(document).ready(function () {
 	$('#loadCont').hide();
 	$('#testResults').hide();
 	$('#runTest').submit(function (e) {
-		html.find('script[src="https://svht.tradedoubler.com/tr_sdk.js"]').remove();
+//		html.find('script[src="https://svht.tradedoubler.com/tr_sdk.js"]').remove();
 		$('iframe').remove();
 		var swrapURL="https://swrap.tradedoubler.com/wrap?id=";
 		swrapURL=swrapURL+$('#newContID').val();
