@@ -3,6 +3,7 @@
 <body>
 <script>
 
+//Pulls utm_source from the URL and saves to variable
 function getParameterByName(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
   var regex = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)'),
@@ -12,8 +13,10 @@ function getParameterByName(name) {
     : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
 
-var sValue=getParameterByName(utm_source);
+var sValue=getParameterByName('utm_source');
 
+
+//Injects utm_source into 1st party cookie
  (function(){
  var cookieName = "Dedupe"; // Name of your cookie
  var cookieValue = sValue; // Value of your cookie
