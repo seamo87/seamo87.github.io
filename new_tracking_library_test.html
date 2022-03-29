@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<form id="tlTest">
+<label for="validOn"><strong>valid On</strong></label><br><br>
+<input type="text" id="validOn" name="validOn"><br><br>
+<label for="exttype"><strong>Exttype</strong></label><br><br>
+<input type="text" id="exttype" name="exttype"><br><br>
+<label for="extid"><strong>Extid</strong></label><br><br>
+<input type="text" id="extid" name="extid"><br><br>
+</form>
+<br>
+<br>
+<button type="button" id="testbtn" onClick="" Value="Test">Test Pixel</button>
+<br>
+<br>
+<div id="testpix">
+</div>
+<script>
+$(document).ready(function () {
+	$('#testbtn').click(function(){
+		var validOn='';
+		var exttype='';
+		var extid='';
+		validOn=$('#validOn').val();
+		exttype=$('#exttype').val();
+		extid=$('#extid').val();
+
+		var basic='(function(i,s,o,g,r,a,m){i[\'TDConversionObject\']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,\'script\', \'https://svht.tradedoubler.com/tr_sdk_debug.js\', \'tdconv\');\rtdconv(\'init\', \'7654321\', {\'program\':true, \'programId\':123456});\rtdconv(\'track\', \'sale\', {\'transactionId\':\'test\',\'ordervalue\':\'0.00\',\'currency\':\'GBP\',\'event\':\'123456\',\'voucher\':\'\',\'validOn\':\''+validOn+'\',\'cdt\':{\'extType\':\''+exttype+'\',\'extId\':\''+extid+'\'}});';
+		var script='<script>'+basic+'<\/script>';
+		var text=basic+'<br><br><br>'
+		$('#testpix').append(text);
+		$('#testpix').append(script);
+	});
+});	
+</script>
+</body>
+</html>
