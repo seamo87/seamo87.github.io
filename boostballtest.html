@@ -1,0 +1,116 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+function setCookie(e,t,n,r,u,a){var i=new Date;i.setTime(i.getTime()),n&&(n=1e3*n*60*60*24);var _=new Date(i.getTime()+n);document.cookie=e+"="+escape(t)+(n?"; expires="+_.toGMTString():"")+(r?"; path="+r:"")+(u?"; domain="+u:"")+(a?"; secure":"")}function getVar(e){get_string=document.location.search,return_value="";do{name_index=get_string.indexOf(e+"="),-1!=name_index&&(get_string=get_string.substr(name_index+e.length+1,get_string.length-name_index),end_of_value=get_string.indexOf("&"),-1!=end_of_value?value=get_string.substr(0,end_of_value):value=get_string,""==return_value||""==value?return_value+=value:return_value+=", "+value)}while(-1!=name_index);for(space=return_value.indexOf("+");-1!=space;)return_value=return_value.substr(0,space)+" "+return_value.substr(space+1,return_value.length),space=return_value.indexOf("+");return return_value}var mytduid=getVar("tduid");setCookie("tduid",mytduid,365);
+</script>
+<script type="text/javascript">
+// Your organization ID 
+var organization = 2319159;
+//
+// Your event ID
+var event = 423567;
+//
+// Event type:
+// true = Sale
+// false = Lead
+var isSale = true;
+//
+// Value of the sale.
+var orderValue = "[ORDER_VALUE]";
+//
+// Currency of the sale.
+var currency = "[CURRENCY]";
+//
+//Set value of extid. This must be the email address hashed using SHA-256.
+var extid = "[HASHED_EMAIL]";
+//
+//Set the value of the external ID type. 
+var exttype = "1";
+//
+// Voucher code used by user.
+var voucher = "[VOUCHER]";
+//
+// Encrypted connection on this page:
+// true = Yes (https)
+// false = No (http)
+var isSecure = true;
+//
+// A unique identifier for the transaction. For a sale, this is typically the order number.
+var orderNumber = "[ORDER_NUMBER]";
+//
+// You may transmit a list of items ordered in the reportInfo parameter.
+var reportInfo = "[ENCODED_REPORT_INFO]";
+reportInfo = escape(reportInfo);
+//
+function getCookie(name)
+{
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1)
+    {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+    }
+    var end = document.cookie.indexOf(";", begin);
+    if (end == -1)
+    {
+        end = dc.length;
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+}
+var tduid = getCookie("tduid");
+/***** IMPORTANT: *****/
+/***** Please consult Tradedoubler before modifying the code below this line. *****/
+if (isSale)
+{
+    var domain = "tbs.tradedoubler.com";
+    var checkNumberName = "orderNumber";
+}
+else
+{
+    var domain = "tbl.tradedoubler.com";
+    var checkNumberName = "leadNumber";
+    var orderValue = "1";
+}
+//
+if (isSecure)
+    var scheme = "https";
+else
+    var scheme = "http";
+//
+var trackBackUrl = scheme + "://" + domain + "/report" + "?organization=" + organization + "&event=" + event + "&" + checkNumberName + "=" + orderNumber + "&tduid=" + tduid + "&extid=" + extid + "&exttype=" + exttype + "&type=iframe";
+if (isSale)
+{
+    trackBackUrl = trackBackUrl + "&orderValue=" + orderValue + "&currency=" + currency + "&voucher=" + voucher + "&reportInfo=" + reportInfo;
+}
+//
+function prepareFrame(tburl){
+    image = document.createElement("img"); 
+    image.setAttribute("src", tburl); 
+    image.width = 1+"px"; 
+    image.height = 1+"px";
+    image.style = "display:none";
+    document.body.appendChild(image); 
+}         
+prepareFrame(trackBackUrl);
+
+(function(){
+    if (tduid) {
+        var a = document.createElement('img');
+        a.src = 'https://img-statics.com/report?o='+organization+'&e='+event+'&ordnum='+orderNumber+'&ordval='+orderValue+'&curr='+currency+'&tduid='+tduid+'&reportInfo='+reportInfo;
+	a.height='1';
+	a.width='1';
+	a.style='display:none';
+        document.body.appendChild(a);
+    }
+})();
+</script>
+</body>
+</html>
