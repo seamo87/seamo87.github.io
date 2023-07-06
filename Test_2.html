@@ -6,19 +6,34 @@
         (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', 'https://svht.tradedoubler.com/tr_sdk.js', 'tdconv');
  </script>
 <!-- End Tradedoubler tag-->
+<script>
+    var TDConversion = {
+        transactionId: 'PLTTest1688630201',
+        currency: 'GBP',
+        voucher: 'testvoucher',
+        event: 51,
+        eventTime: '2023-01-31%2023:59:59', // e.g. 2023-06-29%2023:59:59
+        validOn: '2023-12-30', // e.g. 2023-12-30
+        cdt: {
+            extId: '9F86D081884C7D659A2FEAA0C55AD015A3BF4F1B2B0B822CD15D6C15B0F00A08',
+            extType: 0
+        },
+        // use either "products" array or "basket" string
+        products: [
+            {'id': 'Prod1', 'name': 'Test Product 1', 'grpId': '14681', 'price': '3.99', 'currency': 'GBP', 'qty': '2'},
+            {'id': 'Prod2', 'name': 'Test Product 2', 'grpId': '14704', 'price': '4.99', 'currency': 'GBP', 'qty': '4'}
+        ]
+        // basket: 'basket(pr(i(AB453%2D435)n(Ipod%20Nano%202gb)gr(25)v(100)q(1))pr(i(AD455%2D425)n(IPhone%2016gb)gr(46)v(300)q(2)))'
+    };
+    
+(function(o,w,v){
+var b,c=TDConversion,d=c.products,l=w.localStorage;function getCookie(e){var t=v.cookie,d=e+"=",n=t.indexOf("; "+d);if(-1==n){if(0!=(n=t.indexOf(d)))return null}else n+=2;var r=document.cookie.indexOf(";",n);return-1==r&&(r=t.length),unescape(t.substring(n+d.length,r))}if(void 0!==c.basket)b=c.basket;else if(Array.isArray(d)&&d.length>0){b="basket(";for(let e=0;e<d.length;e++)b+="pr(i("+encodeURIComponent(d[e].id.substr(0,20))+")n("+encodeURIComponent(d[e].name.substr(0,20))+")gr("+d[e].grpId+")v("+d[e].price+")q("+d[e].qty+"))";b+=")"}w.tdfallback=w.setTimeout(()=>{var e=v.createElement("iframe");if(e.async="yes",e.width="1",e.height="1",e.frameBorder="0",!1!==l.getItem("tdtrackingconsent"))var t=")tduid("+getCookie("tduid")+")extid("+c.cdt.extId+")exttype("+c.cdt.extType;else if(l.getItem("tdprog")&&l.getItem("tdaff"))t=")program("+l.getItem("tdprog")+")affiliate("+l.getItem("tdaff");else t=")cons(false";e.src="https://a.imgstatics.com/report?o("+o+")e("+c.event+")ordnum("+c.transactionId+")curr("+c.currency+")voucher("+c.voucher+")event_time("+c.eventTime+")validOn("+c.validOn+t+")convtagtid(34)type(iframe)enc(3)"+b,v.body.appendChild(e)},3e3);
+
+    (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(w,v,'script', 'https://hst.tradedoubler.com/file/267487/jssdk/tr_sdk_uat.js?' + Math.random(), 'tdconv');
+
+    tdconv('init', o, {element: 'iframe', program: true, programId: 332835, sameHost: true});
+    tdconv('track', 'sale', TDConversion);
+})('2330755',window,document);
 </script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N7RH93H');</script>
-<!-- End Google Tag Manager -->
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7RH93H"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
