@@ -1,36 +1,5 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script>
-$(document).ready((function){
-let sWrap = document.createElement('img');
-sWrap.src ='https://swrap.tradedoubler.com/wrap?id=123';
-sWrap.aysnc = true;
-
-const log = document.querySelector(".event-log-contents");
-const reload = document.querySelector("#reload");
-
-reload.addEventListener("click", () => {
-  log.textContent = "";
-  setTimeout(() => {
-    window.location.reload(true);
-  }, 200);
-});
-
-window.addEventListener("load", (event) => {
- log.textContent += "load\nContainer Tag Deployed:" + sWrap.src;
-document.head.appendChild(sWrap);
-});
-
-document.addEventListener("readystatechange", (event) => {
-  log.textContent += `readystate: ${document.readyState}\n`;
-});
-
-document.addEventListener("DOMContentLoaded", (event) => {
-  log.textContent += `DOMContentLoaded\n`;
-});
-});
-</script>
 </head>
 <body>
 <div class="controls">
@@ -46,5 +15,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
     cols="30"
     id="eventLog"></textarea>
 </div>
+<script>
+let sWrap = document.createElement('img');
+sWrap.src ='https://swrap.tradedoubler.com/wrap?id=123';
+sWrap.aysnc = true;
+
+const log = document.querySelector(".event-log-contents");
+const reload = document.querySelector("#reload");
+
+reload.addEventListener("click", () => {
+  log.textContent = "";
+  setTimeout(() => {
+    window.location.reload(true);
+  }, 200);
+});
+
+window.addEventListener("load", (event) => {
+ log.textContent += "load\nContainer Tag Deployed: " + sWrap.src;
+document.head.appendChild(sWrap);
+});
+
+document.addEventListener("readystatechange", (event) => {
+  log.textContent += `readystate: ${document.readyState}\n`;
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  log.textContent += `DOMContentLoaded\n`;
+});
+</script>
 </body>
 </html>
