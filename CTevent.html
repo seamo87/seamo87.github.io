@@ -1,8 +1,10 @@
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
+$(document).ready((function){
 let sWrap = document.createElement('img');
-sWrap.src ='https://swrap.tradedoubler.com?id=123';
+sWrap.src ='https://swrap.tradedoubler.com/wrap?id=123';
 sWrap.aysnc = true;
 
 const log = document.querySelector(".event-log-contents");
@@ -26,6 +28,7 @@ document.addEventListener("readystatechange", (event) => {
 
 document.addEventListener("DOMContentLoaded", (event) => {
   log.textContent += `DOMContentLoaded\n`;
+});
 });
 </script>
 </head>
