@@ -1,5 +1,7 @@
 <html>
 <head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3883385992440189"
+     crossorigin="anonymous"></script>
 <script>
 let sWrap = document.createElement('img');
 sWrap.src ='https://swrap.tradedoubler.com?id=123';
