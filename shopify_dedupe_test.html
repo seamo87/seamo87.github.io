@@ -1,0 +1,62 @@
+<html>
+<head>
+
+<script>
+function getParameterByName(name) {
+name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]'); var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'), results = regex.exec(location.search);
+return results === null
+? ''
+: decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+var sValue=getParameterByName('utm_source');
+
+{var cookieName = "TDSource"; var cookieValue = sValue;
+var expirationTime = 2592000; expirationTime = expirationTime * 1000; var date = new Date();
+var dateTimeNow = date.getTime(); date.setTime(dateTimeNow + expirationTime); var date = date.toUTCString();
+document.cookie = cookieName+"="+cookieValue+"; SameSite=None; Secure; expires="+date+"; path=/; domain=." + location.hostname.replace(/^www\./i, "");
+};
+</script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+var TDevent ='';
+var TDsource= document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("TDSource="))
+  ?.split("=")[1];;
+var TDvoucher='{{discount_application}}';
+if(TDsource !== 'tradedoubler' || null)
+{TDevent='446014';}
+
+{% assign td_order_value = subtotal_price | minus: tax_price | money_without_currency | remove: '.' | remove: ',' | divided_by: 100.0 %}
+    var TDorderNumber = "{{ order_number }}";
+    var TDConversion = {
+        transactionId : TDorderNumber.replace(/#/g, ''),
+        ordervalue: "{{ td_order_value }}",
+        currency: "{{ currency }}",
+		voucher: "TDvoucher.title",
+		event: TDevent,
+		ttid: 20,
+		trafficSource:TDsource	
+}; 
+(function (o, w, v) {var r, c = TDConversion, d = c.products, l = w.localStorage; 
+        function getCookie(e) { var t = v.cookie, r = e + "=", o = t.indexOf("; " + r); if (-1 == o) { if (0 != (o = t.indexOf(r))) return null } else o += 2; var n = v.cookie.indexOf(";", o); return -1 == n && (n = t.length), unescape(t.substring(o + r.length, n))}
+	w.tdfallback = w.setTimeout(function() { var e = v.createElement("iframe"); if (e.async = "yes", e.width = "1", e.height = "1", e.frameBorder = "0", "false" !== l.getItem("tdtrackingconsent")) var t = "&tduid=" + getCookie("tduid") ;else { if (!l.getItem("tdprog") || !l.getItem("tdaff")) return; t = "&program=" + l.getItem("tdprog") + "&affiliate=" + l.getItem("tdaff")}
+        !1 === l.getItem("tdcookieconsent") && (t += "&cons=false"), e.src = "https://a.imgstatics.com/report?organization="+2377731+"&event=" + c.event + "&orderNumber=" + c.transactionId + "&orderValue=" + c.ordervalue + "&currency=" + c.currency + t + "&convtagtid=34&type=iframe", v.body.appendChild(e) }, 3e3);
+        
+        (function (i, s, o, g, r, a, m) { i['TDConversionObject'] = r; i[r] = i[r] || function () {(i[r].q = i[r].q || []).push(arguments)},i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;m.parentNode.insertBefore(a, m) })
+        (w, v, 'script', 'https://svht.tradedoubler.com/tr_sdk.js', 'tdconv');
+        
+        
+        tdconv('tracking-consent', '[TRACKING_CONSENT]');
+        tdconv('init', o, {element: 'iframe'}),
+	tdconv('track', 'sale', TDConversion);
+ })('2377731', window, document);
+        
+</script>
+</body>
+</html>
