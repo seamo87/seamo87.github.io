@@ -23,16 +23,16 @@ document.cookie = cookieName+"="+cookieValue+"; SameSite=None; Secure; expires="
 <script type="text/javascript">
 
 
-var TDevent ='';
+var TDevent ='123';
 var TDsource= document.cookie
   .split("; ")
   .find((row) => row.startsWith("TDSource="))
-  ?.split("=")[1];;
+  ?.split("=")[1];
 var TDvoucher='{{discount_application}}';
 if(TDsource !== 'tradedoubler' || null)
 {TDevent='446014';}
 
-{% assign td_order_value = subtotal_price | minus: tax_price | money_without_currency | remove: '.' | remove: ',' | divided_by: 100.0 %}
+//{% assign td_order_value = subtotal_price | minus: tax_price | money_without_currency | remove: '.' | remove: ',' | divided_by: 100.0 %}
     var TDorderNumber = "{{ order_number }}";
     var TDConversion = {
         transactionId : TDorderNumber.replace(/#/g, ''),
