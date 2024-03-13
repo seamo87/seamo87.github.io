@@ -29,7 +29,7 @@ var TDsource= document.cookie
   .find((row) => row.startsWith("TDSource="))
   ?.split("=")[1];
 var TDvoucher='{{discount_application}}';
-if(TDsource !== 'tradedoubler' || null || undefined)
+if(TDsource && TDsource!=='tradedoubler')
 {TDevent='446014';}
 
 //{% assign td_order_value = subtotal_price | minus: tax_price | money_without_currency | remove: '.' | remove: ',' | divided_by: 100.0 %}
