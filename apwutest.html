@@ -32,7 +32,7 @@ n=v.cookie.indexOf(";",o);return-1==n&&(n=t.length),unescape(t.substring(o+r.len
 p=0,products=[];p<d.length;p++)products.push("f1"+d[p].id+"&f2"+d[p].name+"&f3"+d[p].price+"&f4"+d[p].qty);r=products.join("|")}r=encodeURIComponent(r), w.tdfallback=w.setTimeout(function(){var e=v.createElement("iframe");if(e.async="yes",e.width="1",e.height="1",e.frameBorder="0","false"!==l.getItem("tdtrackingconsent"))var t="&tduid="+getCookie("tduid")+"&extid="+c.cdt.extId+"&exttype="+c.cdt.extType;else{if(!l.getItem("tdprog")||!l.getItem("tdaff"))return;t="&program="+l.getItem("tdprog")+"&affiliate="+l.getItem("tdaff")}!1===l.getItem("tdcookieconsent")&&(t+="&cons=false"),e.src="https://a.imgstatics.com/report?organization="+o+"&event="+c.event+"&orderNumber="+c.transactionId+"&orderValue="+c.ordervalue+"&currency="+c.currency+"&voucher="+c.voucher+"&event_time="+c.eventTime+"&validOn="+c.validOn+t+"&convtagtid=34&type=iframe&reportInfo="+r,v.body.appendChild(e)},3e3);
 (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(w,v,'script', 'https://svht.tradedoubler.com/tr_sdk.js', 'tdconv');
 tdconv('tracking-consent', 'true');
-tdconv('init', o, {element: 'iframe'}),{'program':true, 'programId':343202};
+tdconv('init', o, {element: 'iframe','program':true, 'programId':343202});
 tdconv('track', 'sale', TDConversion);
 })('2355620', window, document);
 </script>
