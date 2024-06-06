@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+ var TDConversion = {
+        transactionId: 'testord',
+        ordervalue: '70.00',
+        currency: 'GBP',
+	event: 212106,
+	voucher: '[VOUCHER]',
+}; 
+(function(o,w,v){var r,c=TDConversion,d=c.products,l=w.localStorage;function getCookie(e){var t=v.cookie,r=e+"=",c=t.indexOf("; "+r);if(-1==c){if(0!=(c=t.indexOf(r)))return null}else c+=2;var o=v.cookie.indexOf(";",c);return-1==o&&(o=t.length),unescape(t.substring(c+r.length,o))}
+ if(void 0!==c.reportInfo)r=c.reportInfo;else if(Array.isArray(d)&&d.length>0){for(var p=0,products=[];p < d.length;p++)products.push("f1="+d[p].id+"&f2="+d[p].name+"&f3="+d[p].price+"&f4="+d[p].qty);r=products.join("|")}r=encodeURIComponent(r),w.tdfallback=w.setTimeout(function(){var e=v.createElement("iframe");e.async="yes",e.width="1",e.height="1",e.frameBorder="0";var t="";"false"!==l.getItem("tdtrackingconsent")?(t="&tduid="+getCookie("tduid"),c.cdt&&(t+="&extid="+c.cdt.extId+"&exttype="+c.cdt.extType)):l.getItem("tdprog")&&l.getItem("tdaff")&&(t="&program="+l.getItem("tdprog")+"&affiliate="+l.getItem("tdaff"));var d=getCookie("tdclid_sn");if(d&&(t+="&tdpeh="+d),""!==t){!1===l.getItem("tdcookieconsent")&&(t+="&cons=false");var n="https://a.imgstatics.com/report?organization="+o+"&event="+c.event+"&orderNumber="+c.transactionId;n+=c.ordervalue?"&orderValue="+c.ordervalue:"",n+=c.currency?"¤cy="+c.currency:"",n+=c.voucher?"&voucher="+c.voucher:"",n+=c.eventTime?"&event_time="+c.eventTime:"",n+=c.validOn?"&validOn="+c.validOn:"",n+=c.ttid?"&ttid="+c.ttid:"",n+=c.trafficSource?"&trafficSource="+encodeURIComponent(c.trafficSource):"",n+=t+"&convtagtid=34&type=iframe&reportInfo="+r,e.src=n,v.body.appendChild(e)}},3e3);
+    (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', 'https://svht.tradedoubler.com/tr_sdk.js?org=1536335&prog=', 'tdconv');
+        
+        
+        tdconv('tracking-consent', ['TRACKING_CONSENT']);
+        tdconv('init', o, {element: 'iframe',sameHost: 'false',}),
+	tdconv('track', 'sale', TDConversion);
+ })('1536335', window, document);</script>
+<script type="text/javascript">
+
+ var TDConversion = {
+        transactionId: 'testord',
+        ordervalue: '300.00',
+        currency: 'GBP',
+	event: 212108,
+	voucher: '[VOUCHER]',
+}; 
+(function(o,w,v){var r,c=TDConversion,d=c.products,l=w.localStorage;function getCookie(e){var t=v.cookie,r=e+"=",c=t.indexOf("; "+r);if(-1==c){if(0!=(c=t.indexOf(r)))return null}else c+=2;var o=v.cookie.indexOf(";",c);return-1==o&&(o=t.length),unescape(t.substring(c+r.length,o))}
+ if(void 0!==c.reportInfo)r=c.reportInfo;else if(Array.isArray(d)&&d.length>0){for(var p=0,products=[];p < d.length;p++)products.push("f1="+d[p].id+"&f2="+d[p].name+"&f3="+d[p].price+"&f4="+d[p].qty);r=products.join("|")}r=encodeURIComponent(r),w.tdfallback=w.setTimeout(function(){var e=v.createElement("iframe");e.async="yes",e.width="1",e.height="1",e.frameBorder="0";var t="";"false"!==l.getItem("tdtrackingconsent")?(t="&tduid="+getCookie("tduid"),c.cdt&&(t+="&extid="+c.cdt.extId+"&exttype="+c.cdt.extType)):l.getItem("tdprog")&&l.getItem("tdaff")&&(t="&program="+l.getItem("tdprog")+"&affiliate="+l.getItem("tdaff"));var d=getCookie("tdclid_sn");if(d&&(t+="&tdpeh="+d),""!==t){!1===l.getItem("tdcookieconsent")&&(t+="&cons=false");var n="https://a.imgstatics.com/report?organization="+o+"&event="+c.event+"&orderNumber="+c.transactionId;n+=c.ordervalue?"&orderValue="+c.ordervalue:"",n+=c.currency?"¤cy="+c.currency:"",n+=c.voucher?"&voucher="+c.voucher:"",n+=c.eventTime?"&event_time="+c.eventTime:"",n+=c.validOn?"&validOn="+c.validOn:"",n+=c.ttid?"&ttid="+c.ttid:"",n+=c.trafficSource?"&trafficSource="+encodeURIComponent(c.trafficSource):"",n+=t+"&convtagtid=34&type=iframe&reportInfo="+r,e.src=n,v.body.appendChild(e)}},3e3);
+    (function(i,s,o,g,r,a,m){i['TDConversionObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script', 'https://svht.tradedoubler.com/tr_sdk.js?org=1536335&prog=', 'tdconv');
+        
+        
+        tdconv('tracking-consent', ['TRACKING_CONSENT']);
+        tdconv('init', o, {element: 'iframe',sameHost: 'false',}),
+	tdconv('track', 'sale', TDConversion);
+ })('1536335', window, document);</script>
+</body>
+</html>
