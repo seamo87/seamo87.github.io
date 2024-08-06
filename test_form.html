@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <script>
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            if (match) return match[2];
+            return null;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission
+            let tduid = getCookie('tduid');
+            let url = 'https://seamo87.github.com/formsubmit';
+            if (tduid) {
+                url += '?tduid=' + encodeURIComponent(tduid);
+            }
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contact Form</h1>
+    <form onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
