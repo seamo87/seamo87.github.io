@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Subdomains Form</title>
+</head>
+<body>
+    <h2>Tracking Subdomains Form</h2>
+    
+    <form id="trackingForm">
+        <label for="adTrackingSubdomain">Ad Tracking Subdomain:</label><br>
+        <input type="text" id="adTrackingSubdomain" name="adTrackingSubdomain" required><br>
+        <small>Example: subdomain1.clientdomain.com</small><br><br>
+
+        <label for="onSiteTrackingSubdomain">On-Site Tracking Subdomain:</label><br>
+        <input type="text" id="onSiteTrackingSubdomain" name="onSiteTrackingSubdomain" required><br>
+        <small>Example: subdomain2.clientdomain.com</small><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>Results:</h3>
+    <p id="exampleClickTracker"></p>
+    <p id="trackingScriptURL"></p>
+
+    <script>
+        document.getElementById('trackingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var adTrackingSubdomain = document.getElementById('adTrackingSubdomain').value;
+            var onSiteTrackingSubdomain = document.getElementById('onSiteTrackingSubdomain').value;
+
+            var exampleClickTracker = `Example Click Tracker: https://\${adTrackingSubdomain}/click`;
+            var trackingScriptURL = `Tracking script URL: https://\${onSiteTrackingSubdomain}/trsdk`;
+
+            document.getElementById('exampleClickTracker').textContent = exampleClickTracker;
+            document.getElementById('trackingScriptURL').textContent = trackingScriptURL;
+        });
+    </script>
+</body>
+</html>
