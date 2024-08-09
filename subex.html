@@ -31,8 +31,8 @@
             var adTrackingSubdomain = document.getElementById('adTrackingSubdomain').value;
             var onSiteTrackingSubdomain = document.getElementById('onSiteTrackingSubdomain').value;
 
-            var exampleClickTracker = `Example Click Tracker: https://\${adTrackingSubdomain}/click`;
-            var trackingScriptURL = `Tracking script URL: https://\${onSiteTrackingSubdomain}/trsdk`;
+            var exampleClickTracker = `Example Click Tracker: https://${adTrackingSubdomain}/click`;
+            var trackingScriptURL = `Tracking script URL: https://${onSiteTrackingSubdomain}/trsdk`;
 
             document.getElementById('exampleClickTracker').textContent = exampleClickTracker;
             document.getElementById('trackingScriptURL').textContent = trackingScriptURL;
