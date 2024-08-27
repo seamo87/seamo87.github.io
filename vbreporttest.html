@@ -1,5 +1,8 @@
 <html>
 <head>
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -16,14 +19,72 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('config', 'TAG_ID');
 </script>
 <!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN6SHNG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <script>
-
 dataLayer.push({
   ecommerce: {
     currencyCode: "GBP",
     currency: "GBP",
     purchase: {
-},
+      actionField: {
+        id: "1300242997",
+        revenue: 1.37,
+        tax: 0.23,
+        shipping: 0,
+        coupon: "",
+        affiliation: "Default Store View",
+        shipping_country: "GB",
+        email_address: [
+          "test.test@test.com",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b78" +
+          "52b855"
+        ],
+        phone_number: [
+          "0198765421",
+          "2a4526f7bcf63b1b600eace391b2dc57869c231fbc67fb101747b9dc61" +
+          "b4a9cd"
+        ],
+        first_name: [
+          "TEST-TRADEDOUBLER",
+          "7564e09d5b25515832055f4b54f878fb0394617f0b62f5dd4efb839570" +
+          "378e71"
+        ],
+        second_name: [
+          "TEST-TRADEDOUBLER",
+          "7564e09d5b25515832055f4b54f878fb0394617f0b62f5dd4efb839570" +
+          "378e71"
+        ],
+        street: [
+          "12 test st, Test City",
+          "2972c8d9c41ee960c2e837b886172d52aec5de64b65faaf478db7466db" +
+          "dc2202"
+        ],
+        city: [
+          "Test city",
+          "f3966925d3b328c7fda7ebf6bc87747f2f15040ae6c16502a76d02e570" +
+          "03eb10"
+        ],
+        region: [
+          "0",
+          "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27" +
+          "fb57e9"
+        ],
+        country: [
+          "GB",
+          "b4043b0b8297e379bc559ab33b6ae9c7a9b4ef6519d3baee53270f0c0d" +
+          "d3d960"
+        ],
+        postcode: [
+          "TE0 0ST",
+          "be3cf222cf279f486b367393b284aec77e317f245947f44c08a784f25c" +
+          "5c51ae"
+        ]
+      },
       products: [
         {
           id: "27054",
@@ -35,12 +96,89 @@ dataLayer.push({
           dimension10: "In stock"
         }
       ]
-    }});
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN6SHNG"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    },
+    purchase_ga4: {
+      actionField: {
+        transaction_id: "1300242997",
+        value: 1.37,
+        tax: 0.23,
+        shipping: 0,
+        coupon: "",
+        affiliation: "Default Store View",
+        shipping_country: "GB",
+        email_address: [
+          "test.test@test.com",
+          "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b78" +
+          "52b855"
+        ],
+        phone_number: [
+          "01987654321",
+          "2a4526f7bcf63b1b600eace391b2dc57869c231fbc67fb101747b9dc61" +
+          "b4a9cd"
+        ],
+        first_name: [
+          "TEST-TRADEDOUBLER",
+          "7564e09d5b25515832055f4b54f878fb0394617f0b62f5dd4efb839570" +
+          "378e71"
+        ],
+        second_name: [
+          "TEST-TRADEDOUBLER",
+          "7564e09d5b25515832055f4b54f878fb0394617f0b62f5dd4efb839570" +
+          "378e71"
+        ],
+        street: [
+          "12, Test St",
+          "2972c8d9c41ee960c2e837b886172d52aec5de64b65faaf478db7466db" +
+          "dc2202"
+        ],
+        city: [
+          "Test City",
+          "f3966925d3b328c7fda7ebf6bc87747f2f15040ae6c16502a76d02e570" +
+          "03eb10"
+        ],
+        region: [
+          "0",
+          "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27" +
+          "fb57e9"
+        ],
+        country: [
+          "GB",
+          "b4043b0b8297e379bc559ab33b6ae9c7a9b4ef6519d3baee53270f0c0d" +
+          "d3d960"
+        ],
+        postcode: [
+          "TE0 0ST",
+          "be3cf222cf279f486b367393b284aec77e317f245947f44c08a784f25c" +
+          "5c51ae"
+        ]
+      },
+      items: [
+        {
+          item_id: "27054",
+          item_name: "Stagg Plastic Kazoo",
+          item_category: "Instruments/Products",
+          price: 1.14,
+          quantity: 1,
+          item_brand: "Stagg",
+          dimension10: "In stock"
+        }
+      ]
+  },
+  facebook: {revenue: 1.37, subtotal: 1.14},
+  payment: {method: "Credit/Debit Card"},
+  shipping: {method: "PMT Shop Pickup - Oxford"},
+  currentStore: "Default Store View",
+  visitorLoginState: "Logged in",
+  visitorLifetimeValue: 28.44,
+  visitorExistingCustomer: "Yes",
+  visitorId: 163776,
+  visitorType: "General",
+  visitorLifetimeOrders: 18,
+  pageType: "purchase",
+  event: "gtm.js",
+  gtm: {uniqueEventId: 475, start: 1667577165254}
+}
+});
+</script>
 </body>
 </html>
