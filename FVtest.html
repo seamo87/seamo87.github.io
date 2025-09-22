@@ -16,37 +16,52 @@ window.dataLayer = window.dataLayer || [];
 </script>
 </script>
 <script>
+window.dataLayer = window.dataLayer || [];
 dataLayer.push({
-'glcommerce':{
-'order': {
-			'id': 'test',
-			'currencyCode': 'GBP',
-			'totals': {
-						'totalGrossPrice': '0.05'
-					},
-			'items': [{
-						'item':[{
-								'product':[{
-											'sku':'TESTPROD123',
-											'name':'testproduct123',
-											'primaryCategory':'Living Room'
-								}],
-								'unitPrice':'0.01',
-								'quantity': 3
-						}],
-						'item':[{
-								'product':[{
-											'sku':'TESTPROD456',
-											'name':'testproduct456',
-											'primaryCategory':'Bedroom'
-								}],
-								'unitPrice':'0.01',
-								'quantity': 2
-						}]
-					}],
-			'promotion_id':'TDTEST123',
-			'priceAdjustments':'0.00'
-}}});
+  'glcommerce': {
+    'order': {
+      'id': 'test123',
+      'currencyCode': 'GBP',
+      'totals': {
+        'totalGrossPrice': '850.00'
+      },
+      'items': [
+        {
+          'product': {
+            'sku': 'TESTPROD123',
+            'name': 'Test Product 123',
+            'primaryCategory': {
+              'hierarchy': [
+                { 'name': 'Living room' }
+              ]
+            }
+          },
+          'unitPrice': '425.00',
+          'quantity': 1
+        },
+        {
+          'product': {
+            'sku': 'TESTPROD456',
+            'name': 'Test Product 456',
+            'primaryCategory': {
+              'hierarchy': [
+                { 'name': 'Bedroom' }
+              ]
+            }
+          },
+          'unitPrice': '425.00',
+          'quantity': 1
+        }
+      ],
+      'promotion_id': 'aff_TDTEST123',
+      'priceAdjustments': [
+        {
+          'couponCode': 'SAVE10'
+        }
+      ]
+    }
+  }
+});
 </script>
 </head>
 <body>
