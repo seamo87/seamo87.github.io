@@ -22,7 +22,7 @@ dataLayer.push({
 			'id': 'test',
 			'currencyCode': 'GBP',
 			'totals: {
-						'totalGrossPrice': 0.05
+						'totalGrossPrice': '0.05'
 					}
 			'items': {
 						'item':{
@@ -30,12 +30,20 @@ dataLayer.push({
 											'sku':'TESTPROD123',
 											'name':'testproduct123'
 								}
-								'unitPrice':0.01,
+								'unitPrice':'0.01',
 								'quantity': 3
+						},
+						'item':{
+								'product':{
+											'sku':'TESTPROD456',
+											'name':'testproduct456'
+								}
+								'unitPrice':'0.01',
+								'quantity': 2
 						}
 					}
 			'promotion_id':'TDTEST123',
-			'priceAdjustments':0.00
+			'priceAdjustments':'0.00'
 }}});
 </script>
 </head>
