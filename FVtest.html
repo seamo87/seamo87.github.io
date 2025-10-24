@@ -18,47 +18,49 @@ window.dataLayer = window.dataLayer || [];
 <script>
 window.dataLayer = window.dataLayer || [];
 dataLayer.push({
-  'glcommerce': {
-    'order': {
-      'id': 'test123',
-      'currencyCode': 'GBP',
-      'totals': {
-        'totalGrossPrice': '850.00'
+  ecommerce: {
+    purchase: {
+      actionField: {
+        id: "fvstg-00064181",
+        affiliation: "Furniture Village",
+        revenue: "2409.00",
+        coupon: "",
+        shipping: "119.00",
+        currency: "GBP"
       },
-      'items': [
+      products: [
         {
-          'product': {
-            'sku': 'TESTPROD123',
-            'name': 'Test Product 123',
-            'primaryCategory': {
-              'hierarchy': [
-                { 'name': 'Living room' }
-              ]
-            }
-          },
-          'unitPrice': '425.00',
-          'quantity': 1
+          name: "Sienna Fabric 3 Seater Sofa",
+          id: "SIEN3S--STK-001",
+          price: "895.00",
+          brand: "Furniture Village",
+          category: "3 Seater sofas",
+          variant: "Hudson Ocean 25315",
+          quantity: 1
         },
         {
-          'product': {
-            'sku': 'TESTPROD456',
-            'name': 'Test Product 456',
-            'primaryCategory': {
-              'hierarchy': [
-                { 'name': 'Bedroom' }
-              ]
-            }
-          },
-          'unitPrice': '425.00',
-          'quantity': 1
-        }
-      ],
-      'promotion_id': 'aff_TDTEST123',
-      'priceAdjustments': [
-        {
-          'couponCode': 'SAVE10'
+          name: "Mariah 4 Seater Fabric Pillow Back Split Frame Sofa",
+          id: "MARH4S--SB-001",
+          price: "1395.00",
+          brand: "Furniture Village",
+          category: "4 Seater sofas",
+          variant: "Dapple Chocolate-Tri Brass",
+          quantity: 1
         }
       ]
+    }
+  },
+  ConversionUserData: {
+    email: "abskbdk@nck.com",
+    phone_number: "07777777777",
+    address: {
+      first_name: "test",
+      last_name: "Test",
+      street: "Prisoners of Conscience Po Box 61044",
+      city: "London",
+      region: "",
+      country: "GB",
+      postal_code: "SE1 1UP"
     }
   }
 });
