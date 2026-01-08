@@ -1,0 +1,47 @@
+<html>
+<head>
+<script>
+  window.tmEventId   = "1D006323F58B4347";
+  window.tmEventType = "STANDARD";
+</script>
+
+<script>
+(function loadTDContainerWhenTMReady() {
+  function tmReady() {
+    return typeof window.tmEventId === "string" && window.tmEventId.length > 0 &&
+           typeof window.tmEventType === "string" && window.tmEventType.length > 0;
+  }
+
+  if (tmReady()) {
+    var s = document.createElement("script");
+    s.src = "https://swrap.tradedoubler.com/wrap?id=33389";
+    s.async = true;
+    document.head.appendChild(s);
+  } else {
+    setTimeout(loadTDContainerWhenTMReady, 50);
+  }
+})();
+</script>
+
+<script>
+window.addEventListener("TD_CONTAINER_READY", function () {
+  var TDConversion = {
+    transactionId: "test",
+    ordervalue: "0.00",
+    currency: "USD",
+    event: window.resolvedEventId,   // set by container
+    voucher: "",
+    cdt: { extId: "", extType: 1 },
+    eventTime: "",
+    validOn: "",
+    reportInfo: ""
+  };
+
+  tdconv("track", "sale", TDConversion);
+});
+</script>
+
+</head>
+<body>
+</body>
+</html>
