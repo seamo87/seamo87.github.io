@@ -5,24 +5,35 @@ var tmEventName  = "New York Yankees vs. Seattle Mariners";
 var tmEventDate  = "2026-08-12";
 var tmEventType  = "STANDARD";
 </script>
-<script src="https://swrap.tradedoubler.com/wrap?id=32780" />
-<script>
-var TDConversion = {
-    transactionId: 'test',
-    ordervalue: '0.00',
-    currency: 'USD',
-    event: resolvedEventId,
-    voucher: '',
-    cdt: {
-        extId: '',
-        extType: 1
-    },
-    eventTime: '',
-    validOn: '',
-    reportInfo: ''
-};
 
-tdconv('track','sale',TDConversion);
+<script>
+(function () {
+    var script = document.createElement('script');
+    script.src = "https://swrap.tradedoubler.com/wrap?id=32780";
+    script.async = true;
+
+    script.onload = function () {
+        // resolvedEventId is now guaranteed to be set by the container
+        var TDConversion = {
+            transactionId: 'test',
+            ordervalue: '0.00',
+            currency: 'USD',
+            event: window.resolvedEventId,
+            voucher: '',
+            cdt: {
+                extId: '',
+                extType: 1
+            },
+            eventTime: '',
+            validOn: '',
+            reportInfo: ''
+        };
+
+        tdconv('track', 'sale', TDConversion);
+    };
+
+    document.head.appendChild(script);
+})();
 </script>
 </head>
 <body>
