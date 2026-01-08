@@ -16,8 +16,7 @@ var tmEventType  = "STANDARD";
     script.src = "https://swrap.tradedoubler.com/wrap?id=32780";
     script.async = true;
 
-    script.onload = function () {
-        // resolvedEventId is now guaranteed to be set by the container
+window.addEventListener("TD_CONTAINER_READY", function () {
         var TDConversion = {
             transactionId: 'test',
             ordervalue: '0.00',
@@ -35,9 +34,7 @@ var tmEventType  = "STANDARD";
 
         tdconv('track', 'sale', TDConversion);
     };
-
-    document.head.appendChild(script);
-})();
+});
 </script>
 </head>
 <body>
